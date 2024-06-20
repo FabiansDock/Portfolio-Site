@@ -17,9 +17,12 @@ const theme = extendTheme({
         },
       },
     },
+    Text: {
+      baseStyle: { color: "white" },
+    },
   },
   colors: {
-    white: "#2C5282",
+    white: "#3182CE",
     gray: {
       50: "#F0FFF4",
       100: "#C6F6D5",
