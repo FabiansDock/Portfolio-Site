@@ -5,6 +5,19 @@ const config: ThemeConfig = {
   useSystemColorMode: false,
 };
 
-const theme = extendTheme({ config });
+const theme = extendTheme({
+  config,
+  components: {
+    Link: {
+      baseStyle: {
+        textDecoration: "none",
+        _hover: {
+          textDecoration: "none",
+          color: "yellow",
+        },
+      },
+    },
+  },
+});
 
 export default theme;
