@@ -1,6 +1,7 @@
 import { HStack, Image, Link } from "@chakra-ui/react";
 import gif from "../assets/f.gif";
 import ColorModeSwitch from "./ColorModeSwitch";
+import { useState } from "react";
 
 interface ProfileTabSchema {
   id: String;
@@ -15,9 +16,10 @@ const NavBar = () => {
     { id: "Certifications", link: "" },
     { id: "Contact", link: "" },
   ];
+  const [navBarColor, setNavBarColor] = useState("#1C4532");
 
   return (
-    <HStack justifyContent="space-between">
+    <HStack justifyContent="space-between" bg={navBarColor}>
       <Image src={gif} boxSize="60px"></Image>
       <HStack>
         {profileTabs.map((tab) => (
@@ -25,7 +27,11 @@ const NavBar = () => {
             {tab.id}
           </Link>
         ))}
-        <ColorModeSwitch />
+        <ColorModeSwitch
+          theme={() => {
+            setNavBarColor(navBarColor === "#1C4532" ? "#810000" : "#1C4532");
+          }}
+        />
       </HStack>
     </HStack>
   );
