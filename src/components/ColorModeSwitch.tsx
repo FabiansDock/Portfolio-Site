@@ -5,7 +5,7 @@ const ColorModeSwitch = () => {
 
   return (
     <Switch
-      colorScheme="yellow"
+      colorScheme="cyan"
       isChecked={colorMode === "dark"}
       onChange={toggleColorMode}
       marginEnd="20px"
