@@ -19,7 +19,7 @@ const theme = extendTheme({
     },
   },
   colors: {
-    white: "#C53030",
+    white: "#2C5282",
     gray: {
       50: "#F0FFF4",
       100: "#C6F6D5",

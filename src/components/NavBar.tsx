@@ -28,8 +28,8 @@ const NavBar = () => {
           </Link>
         ))}
         <ColorModeSwitch
-          theme={() => {
-            setNavBarColor(navBarColor === "#1C4532" ? "#810000" : "#1C4532");
+          theme={(theme) => {
+            setNavBarColor(theme === "dark" ? "#1A365D" : "#1C4532");
           }}
         />
       </HStack>

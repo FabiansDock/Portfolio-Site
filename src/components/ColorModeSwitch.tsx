@@ -1,7 +1,7 @@
 import { Switch, useColorMode } from "@chakra-ui/react";
 
 interface Props {
-  theme: () => void;
+  theme: (theme: String) => void;
 }
 
 const ColorModeSwitch = ({ theme }: Props) => {
@@ -9,7 +9,7 @@ const ColorModeSwitch = ({ theme }: Props) => {
 
   const handleOnChange = () => {
     toggleColorMode();
-    theme();
+    theme(colorMode);
   };
   return (
     <Switch
