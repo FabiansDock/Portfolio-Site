@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import image from "../assets/profilePicture.jpeg";
+import { Box } from "@chakra-ui/react";
 
 const ProfilePicture = () => {
   return (
-    <div>
+    <Box margin={6}>
       <motion.div
         style={{
           width: 300,
@@ -21,7 +22,7 @@ const ProfilePicture = () => {
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
       </motion.div>
-    </div>
+    </Box>
   );
 };
 

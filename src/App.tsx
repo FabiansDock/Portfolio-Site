@@ -1,33 +1,31 @@
-import { Grid, GridItem, Show } from "@chakra-ui/react";
-import NavBar from "./components/NavBar";
-import IntroTextAnimation from "./components/IntroTextAnimation";
-import { useState } from "react";
+import { Grid, GridItem, HStack, Show } from "@chakra-ui/react";
+import BigNavBar, { SmallNavBar } from "./components/NavBar";
+import Intro from "./components/IntroTextAnimation";
 import ProfilePicture from "./components/ProfilePicture";
 
 const App = () => {
-  const [isTypingComplete, setIsTypingComplete] = useState(false);
-
   return (
     <Grid templateAreas={{ base: `'nav' 'main'`, lg: `'nav nav''aside main'` }}>
-      <GridItem area="nav">
-        <NavBar />
-      </GridItem>
-      <Show above="lg">
-        <GridItem area="aside">Aside</GridItem>
+      <Show below="lg">
+        <GridItem area="nav">
+          <SmallNavBar />
+        </GridItem>
+        <GridItem area="main">
+          <ProfilePicture />
+          <Intro />
+        </GridItem>
       </Show>
-      <GridItem area="main">
-        <IntroTextAnimation
-          message="Hi👋, I'm Fabian."
-          typingComplete={() => setIsTypingComplete(true)}
-        />
-        {isTypingComplete && (
-          <IntroTextAnimation
-            message="Welcome."
-            typingComplete={() => setIsTypingComplete(true)}
-          />
-        )}
-        <ProfilePicture />
-      </GridItem>
+      <Show above="lg">
+        <GridItem area="nav">
+          <BigNavBar />
+        </GridItem>
+        <GridItem area="main" margin={9}>
+          <HStack>
+            <Intro />
+            <ProfilePicture />
+          </HStack>
+        </GridItem>
+      </Show>
     </Grid>
   );
 };

@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Box } from "@chakra-ui/react";
 
 interface Props {
-  message: string;
+  message: String;
   typingComplete: () => void;
+  textColor: string;
 }
 
-const Intr0TextAnimation = ({ message, typingComplete }: Props) => {
+const IntroTextAnimation = ({ message, typingComplete, textColor }: Props) => {
   const [displayText, setDisplayText] = useState("");
   const [isTypingComplete, setIsTypingComplete] = useState(false);
-  const textColor = "white";
 
   useEffect(() => {
     const sentence = message;
@@ -33,8 +34,7 @@ const Intr0TextAnimation = ({ message, typingComplete }: Props) => {
     <div
       style={{
         display: "flex",
-        paddingTop: "3rem",
-        paddingRight: "50rem",
+        paddingTop: "2rem",
       }}
     >
       <motion.h1
@@ -63,4 +63,25 @@ const Intr0TextAnimation = ({ message, typingComplete }: Props) => {
   );
 };
 
-export default Intr0TextAnimation;
+const Intro = () => {
+  const [isTypingComplete, setIsTypingComplete] = useState(false);
+
+  return (
+    <Box flex={1} whiteSpace="nowrap">
+      <IntroTextAnimation
+        message="Hi👋, I'm Fabian."
+        typingComplete={() => setIsTypingComplete(true)}
+        textColor="white"
+      />
+      {isTypingComplete && (
+        <IntroTextAnimation
+          message="A Full Stack Developer."
+          typingComplete={() => setIsTypingComplete(true)}
+          textColor="#63B3ED"
+        />
+      )}
+    </Box>
+  );
+};
+
+export default Intro;
