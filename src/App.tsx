@@ -2,6 +2,7 @@ import { Grid, GridItem, Show } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 import IntroTextAnimation from "./components/IntroTextAnimation";
 import { useState } from "react";
+import ProfilePicture from "./components/ProfilePicture";
 
 const App = () => {
   const [isTypingComplete, setIsTypingComplete] = useState(false);
@@ -25,6 +26,7 @@ const App = () => {
             typingComplete={() => setIsTypingComplete(true)}
           />
         )}
+        <ProfilePicture />
       </GridItem>
     </Grid>
   );
