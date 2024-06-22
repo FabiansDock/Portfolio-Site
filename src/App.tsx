@@ -1,7 +1,6 @@
 import { Grid, GridItem, HStack, Show } from "@chakra-ui/react";
 import BigNavBar, { SmallNavBar } from "./components/NavBar";
-import Intro from "./components/IntroTextAnimation";
-import ProfilePicture from "./components/ProfilePicture";
+import { Outlet } from "react-router-dom";
 
 const App = () => {
   return (
@@ -11,8 +10,7 @@ const App = () => {
           <SmallNavBar />
         </GridItem>
         <GridItem area="main">
-          <ProfilePicture />
-          <Intro />
+          <Outlet />
         </GridItem>
       </Show>
       <Show above="lg">
@@ -21,8 +19,7 @@ const App = () => {
         </GridItem>
         <GridItem area="main" margin={9}>
           <HStack>
-            <Intro />
-            <ProfilePicture />
+            <Outlet />
           </HStack>
         </GridItem>
       </Show>

@@ -8,7 +8,9 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
+  useColorMode,
 } from "@chakra-ui/react";
+import { Link as RouteLink } from "react-router-dom";
 import logo from "../assets/logo.gif";
 import ColorModeSwitch from "./ColorModeSwitch";
 import { useState } from "react";
@@ -21,22 +23,27 @@ interface ProfileTabSchema {
 
 const BigNavBar = () => {
   const profileTabs: ProfileTabSchema[] = [
-    { id: "About", link: "" },
-    { id: "Portfolio", link: "" },
-    { id: "Resume", link: "" },
-    { id: "Certifications", link: "" },
-    { id: "Contact", link: "" },
+    { id: "About", link: "/" },
+    { id: "Projects", link: "/projects" },
+    { id: "Resume", link: "/resume" },
+    { id: "Certifications", link: "/certifications" },
+    { id: "Contact", link: "/contact" },
   ];
-  const [navBarColor, setNavBarColor] = useState("#1C4532");
+  const { colorMode } = useColorMode();
+  const [navBarColor, setNavBarColor] = useState(
+    colorMode === "dark" ? "#1C4532" : "#1A365D"
+  );
 
   return (
     <HStack justifyContent="space-between" bg={navBarColor}>
       <Image src={logo} boxSize="60px"></Image>
       <HStack>
         {profileTabs.map((tab) => (
-          <Link href={tab.link as string} color="cyan" marginEnd="30px">
-            {tab.id}
-          </Link>
+          <RouteLink to={tab.link as string}>
+            <Link color="cyan" marginEnd="30px">
+              {tab.id}
+            </Link>{" "}
+          </RouteLink>
         ))}
         <ColorModeSwitch
           theme={(theme) => {
@@ -51,7 +58,7 @@ const BigNavBar = () => {
 export const SmallNavBar = () => {
   const profileTabs: ProfileTabSchema[] = [
     { id: "About", link: "" },
-    { id: "Portfolio", link: "" },
+    { id: "Projects", link: "" },
     { id: "Resume", link: "" },
     { id: "Certifications", link: "" },
     { id: "Contact", link: "" },
