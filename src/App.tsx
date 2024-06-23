@@ -17,7 +17,7 @@ const App = () => {
         <GridItem area="nav">
           <BigNavBar />
         </GridItem>
-        <GridItem area="main" margin={9}>
+        <GridItem area="main" margin={9} paddingEnd="4rem">
           <HStack>
             <Outlet />
           </HStack>
