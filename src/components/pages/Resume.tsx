@@ -37,8 +37,8 @@ const Resume = () => {
       <Button onClick={() => handleDownload(0)} bgColor="gray.300">
         Download Resume
       </Button>
-      <Text fontSize="2rem" color="cyan" fontWeight="bold">
-        A resume buit using LaTex ✨
+      <Text fontSize="1rem" color="cyan" fontWeight="bold">
+        A resume built using LaTex ✨
       </Text>
       <Button onClick={() => handleDownload(1)} bgColor="gray.300">
         Download LaTex code
