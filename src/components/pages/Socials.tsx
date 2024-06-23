@@ -12,11 +12,11 @@ import {
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 
-const Contact = () => {
+const Socials = () => {
   return (
     <VStack spacing={6}>
-      <Text fontSize="2rem" color="cyan" fontWeight="bold">
-        Contact
+      <Text color="gray.200" fontSize="3rem" fontFamily="fantasy">
+        Socials
       </Text>
       <Card borderColor="gray.500" borderWidth={1}>
         <CardBody boxSize="20rem">
@@ -74,4 +74,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Socials;

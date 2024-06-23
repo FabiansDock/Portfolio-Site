@@ -75,7 +75,7 @@ const Intro = () => {
       />
       {isTypingComplete && (
         <IntroTextAnimation
-          message="A Full Stack Developer."
+          message="A Software Developer."
           typingComplete={() => setIsTypingComplete(true)}
           textColor="#63B3ED"
         />

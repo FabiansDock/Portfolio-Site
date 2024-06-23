@@ -4,7 +4,7 @@ import AboutPage from "./components/pages/About";
 import Certifications from "./components/pages/Certifications";
 import Projects from "./components/pages/Projects";
 import Resume from "./components/pages/Resume";
-import Contact from "./components/pages/Contact";
+import Socials from "./components/pages/Socials";
 
 const router = createBrowserRouter([
   {
@@ -15,7 +15,7 @@ const router = createBrowserRouter([
       { path: "/projects", element: <Projects /> },
       { path: "/resume", element: <Resume /> },
       { path: "/certifications", element: <Certifications /> },
-      { path: "/contact", element: <Contact /> },
+      { path: "/socials", element: <Socials /> },
     ],
   },
 ]);

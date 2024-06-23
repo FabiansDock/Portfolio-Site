@@ -17,7 +17,7 @@ import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 
 interface ProfileTabSchema {
-  id: String;
+  id: string;
   link: String;
 }
 
@@ -27,12 +27,13 @@ const BigNavBar = () => {
     { id: "Projects", link: "/projects" },
     { id: "Resume", link: "/resume" },
     { id: "Certifications", link: "/certifications" },
-    { id: "Contact", link: "/contact" },
+    { id: "Socials", link: "/socials" },
   ];
   const { colorMode } = useColorMode();
   const [navBarColor, setNavBarColor] = useState(
     colorMode === "dark" ? "#1C4532" : "#1A365D"
   );
+  const [activeLink, setActiveLink] = useState(profileTabs[0].id);
 
   return (
     <HStack justifyContent="space-between" bg={navBarColor}>
@@ -40,7 +41,12 @@ const BigNavBar = () => {
       <HStack>
         {profileTabs.map((tab) => (
           <RouteLink to={tab.link as string}>
-            <Link color="cyan" marginEnd="30px">
+            <Link
+              key={tab.id}
+              color={tab.id === activeLink ? "yellow" : "cyan"}
+              marginEnd="30px"
+              onClick={() => setActiveLink(tab.id)}
+            >
               {tab.id}
             </Link>{" "}
           </RouteLink>
@@ -61,7 +67,7 @@ export const SmallNavBar = () => {
     { id: "Projects", link: "" },
     { id: "Resume", link: "" },
     { id: "Certifications", link: "" },
-    { id: "Contact", link: "" },
+    { id: "Socials", link: "" },
   ];
   const [navBarColor, setNavBarColor] = useState("#1C4532");
 
