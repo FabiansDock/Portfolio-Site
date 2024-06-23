@@ -1,0 +1,88 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{lipsum} 
+\usepackage{graphicx} 
+\usepackage{atbegshi}
+\usepackage{hyperref}
+\usepackage{fontawesome5}
+\usepackage{academicons}
+
+\definecolor{darkyellow}{RGB}{255,204,0} % Adjust the RGB values for the desired dark yellow color
+\definecolor{lightblue}{RGB}{100,100,230} % Adjust the RGB values for the desired light blue color
+\definecolor{papayawhip}{RGB}{255,239,213} % Papayawhip color
+
+
+\newlength{\leftbarwidth}
+\setlength{\leftbarwidth}{1cm} 
+
+
+\newlength{\topbarheight}
+\setlength{\topbarheight}{3.3cm} 
+
+
+\newcommand{\leftbar}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[darkyellow] (current page.north west) rectangle ([xshift=\leftbarwidth]current page.south west);
+  \end{tikzpicture}
+}
+
+
+\newcommand{\topbar}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[lightblue] (current page.north west) rectangle ([yshift=-\topbarheight]current page.north east);        
+    \node[anchor=north west, inner sep=0, font=\Large\bfseries, text=papayawhip] at ([xshift=8.6cm, yshift=-0.9cm]current page.north west) 
+    {Fabian Savio D'cruz}
+    \node[anchor=north west, inner sep=0, font=\large\bfseries, text=papayawhip] at ([xshift=2.6cm, yshift=-2.3cm]current page.north west)
+    {\faGit:\href{https://github.com/FabiansDock/}{FabiansDock}\hspace{2cm} \faIcon{linkedin}:\href{https://www.linkedin.com/in/fabian-savio-dcruz-/}{fabian-savio-dcruz-} \hspace{2cm} \faIcon{envelope}:fabian20122001@gmail.com};
+    \fi
+  \end{tikzpicture}
+}
+
+\AtBeginShipout{\AtBeginShipoutAddToBox{\topbar}}
+
+\pagestyle{empty} % Remove page numbers
+
+\begin{document}
+\noindent
+\begin{minipage}{\dimexpr\textwidth-\leftbarwidth--3cm} 
+    \section*{Introduction}
+    Motivated and dedicated undergraduate student. Passionate about software development. Having a keen desire to contribute to innovative projects. A continuous learner, enthusiastic about acquiring knowledge in new technologies. 
+
+    \section*{Academic Background}
+    \begin{itemize}
+            \item CSE from College of Engineering, Trivandrum (2025): 8.06 CGPA
+            \item 12th grade,CBSE (2019) score: 8.68 
+            \item 10th grade,CBSE (2017) score: 81\%
+    \end{itemize}
+    
+    \section*{Key Strength}
+    \begin{itemize}
+          \item No Procrastination
+    \end{itemize}
+
+    \section*{Projects}
+    \begin{itemize}
+        \item \textbf{\href{https://github.com/FabiansDock/tmg-disease-predictor}{TMG Disease Predictor}}: is an application that predicts the type of disease based on the selected plant category(Tomato, Mango or Grapes). Based on the disease type, we get the name of the disease, the causative agent, scientific name and the recommended ways for treatment. The symptoms provided as output help us make sure that the disease predicted is truthy or not. The application even tells us whether the leaf is healthy or not. \href{https://github.com/FabiansDock/Plant-Disease-Detection-Model}{Used Custom Trained Models}
+        \item \textbf{\href{https://github.com/FabiansDock/Django-Store-API}{Store API}}: A store api. Contains apps that can be reused in another django api's.
+    \end{itemize}
+    
+    \section*{Tech Stack}
+    \hspace{1cm}\Large\faPython[size=24pt]
+    \hspace{1cm}\faGit[size=24pt]
+    \hspace{1cm}\faDocker[size=24pt]
+    \hspace{1cm}\faNodeJs[size=24pt]
+    \hspace{1cm}{TypeScript}
+    \hspace{1cm}\faReact[size=24pt]
+    \hspace{1cm}\faDatabase[size=24pt]~SQL
+    \hspace{1cm}\faHtml5[size=24pt]
+    \hspace{1cm}\faCss3[size=24pt]
+    \hspace{1cm}{django}
+    \hspace{1cm}{PyTorch}
+    \hspace{1cm}\faKey[size=24pt]~jwt  
+    \section*{Aspiration}
+    \begin{itemize}
+            \item Software Developer
+    \end{itemize}  
+\end{minipage}
+
+\end{document}
