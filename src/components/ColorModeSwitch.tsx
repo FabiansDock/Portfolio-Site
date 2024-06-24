@@ -11,6 +11,7 @@ const ColorModeSwitch = ({ theme }: Props) => {
     toggleColorMode();
     theme(colorMode);
   };
+
   return (
     <Switch
       colorScheme="cyan"

@@ -14,7 +14,7 @@ function Bank() {
           maxDistance={8}
           position={[0, 0, 0]}
           maxPolarAngle={Math.PI / 2.5}
-          enableZoom={false} // Disable zooming via mousewheel
+          enableZoom={false}
           enablePan={false}
         />
         <Suspense fallback={null}>

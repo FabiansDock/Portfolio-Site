@@ -3,22 +3,22 @@ import {
   Button,
   HStack,
   Image,
-  Link,
   Menu,
   MenuButton,
   MenuItem,
   MenuList,
   useColorMode,
 } from "@chakra-ui/react";
-import { Link as RouteLink } from "react-router-dom";
+import { Link as RouteLink, useLocation } from "react-router-dom";
 import logo from "../assets/logo.gif";
 import ColorModeSwitch from "./ColorModeSwitch";
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
+import theme from "../theme";
 
 interface ProfileTabSchema {
   id: string;
-  link: String;
+  link: string;
 }
 
 const BigNavBar = () => {
@@ -29,26 +29,33 @@ const BigNavBar = () => {
     { id: "Certifications", link: "/certifications" },
     { id: "Socials", link: "/socials" },
   ];
+
   const { colorMode } = useColorMode();
   const [navBarColor, setNavBarColor] = useState(
     colorMode === "dark" ? "#1C4532" : "#1A365D"
   );
-  const [activeLink, setActiveLink] = useState(profileTabs[0].id);
+
+  const location = useLocation();
+  const [activeLink, setActiveLink] = useState(location.pathname);
 
   return (
     <HStack justifyContent="space-between" bg={navBarColor}>
       <Image src={logo} boxSize="60px"></Image>
       <HStack>
         {profileTabs.map((tab) => (
-          <RouteLink to={tab.link as string}>
-            <Link
-              key={tab.id}
-              color={tab.id === activeLink ? "yellow" : "cyan"}
+          <RouteLink to={tab.link as string} key={tab.id}>
+            <Box
+              color={
+                tab.link === activeLink
+                  ? theme.components.Link.baseStyle._hover.color
+                  : theme.components.Link.baseStyle.color
+              }
               marginEnd="30px"
-              onClick={() => setActiveLink(tab.id)}
+              onClick={() => setActiveLink(tab.link)}
+              _hover={{ color: theme.components.Link.baseStyle._hover.color }}
             >
               {tab.id}
-            </Link>{" "}
+            </Box>{" "}
           </RouteLink>
         ))}
         <ColorModeSwitch
@@ -69,6 +76,7 @@ export const SmallNavBar = () => {
     { id: "Certifications", link: "" },
     { id: "Socials", link: "" },
   ];
+
   const [navBarColor, setNavBarColor] = useState("#1C4532");
 
   return (
@@ -80,10 +88,10 @@ export const SmallNavBar = () => {
           <MenuButton as={Button} rightIcon={<FaChevronDown />} />
           <MenuList>
             {profileTabs.map((tab) => (
-              <MenuItem>
-                <Link href={tab.link as string} color="cyan">
-                  {tab.id}
-                </Link>
+              <MenuItem key={tab.id}>
+                <RouteLink to={tab.link as string}>
+                  <Box color="cyan">{tab.id}</Box>
+                </RouteLink>
               </MenuItem>
             ))}
           </MenuList>

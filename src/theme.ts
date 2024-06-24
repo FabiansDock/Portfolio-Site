@@ -11,6 +11,7 @@ const theme = extendTheme({
     Link: {
       baseStyle: {
         textDecoration: "none",
+        color: "cyan",
         _hover: {
           textDecoration: "none",
           color: "yellow",
