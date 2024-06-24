@@ -1,13 +1,13 @@
 import { Suspense } from "react";
-import "./App.css";
 import { Canvas } from "@react-three/fiber";
 import { Environment, OrbitControls } from "@react-three/drei";
-import BankModel from "../../public/BankModel";
+import BankModel from "../../../public/BankModel";
+import styles from "./Bank.module.css";
 
 function Bank() {
   return (
     <>
-      <Canvas camera={{ position: [0, 2, 5] }}>
+      <Canvas camera={{ position: [0, 2, 5] }} className={styles["canvasBank"]}>
         <ambientLight />
         <OrbitControls
           minDistance={4}

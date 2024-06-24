@@ -1,12 +1,12 @@
-import { Grid, GridItem, HStack, Show } from "@chakra-ui/react";
+import { Grid, GridItem, Show } from "@chakra-ui/react";
 import BigNavBar, { SmallNavBar } from "./components/NavBar";
 import { Outlet } from "react-router-dom";
 
 const App = () => {
   return (
-    <Grid templateAreas={{ base: `'nav' 'main'`, lg: `'nav nav''aside main'` }}>
+    <Grid templateAreas={{ base: `'nav' 'main'`, lg: `'nav nav''main main'` }}>
       <Show below="lg">
-        <GridItem area="nav">
+        <GridItem area="nav" >
           <SmallNavBar />
         </GridItem>
         <GridItem area="main">
@@ -14,13 +14,11 @@ const App = () => {
         </GridItem>
       </Show>
       <Show above="lg">
-        <GridItem area="nav">
+        <GridItem area="nav" >
           <BigNavBar />
         </GridItem>
-        <GridItem area="main" margin={9} paddingEnd="4rem">
-          <HStack>
+        <GridItem area="main">
             <Outlet />
-          </HStack>
         </GridItem>
       </Show>
     </Grid>

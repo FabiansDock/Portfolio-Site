@@ -1,0 +1,9 @@
+body {
+    margin-top: 100px;
+    background-color: black;
+  }
+  
+.canvasLaptop {
+  height: 50vh !important;
+  width: 37% !important;
+}

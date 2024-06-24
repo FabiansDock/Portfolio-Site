@@ -6,7 +6,7 @@ const Certifications = () => {
   const [activeImage, setActiveImage] = useState(0);
 
   return (
-    <VStack>
+    <VStack spacing={6}>
       <Text color="gray.200" fontSize="3rem" fontFamily="fantasy">
         Certifications
       </Text>

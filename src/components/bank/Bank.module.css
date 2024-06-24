@@ -1,0 +1,9 @@
+body {
+  margin-top: 100px;
+  background-color: black;
+}
+
+.canvasBank {
+  height: 50vh !important;
+  width: 30% !important;
+}

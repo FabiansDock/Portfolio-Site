@@ -29,7 +29,7 @@ const Resume = () => {
   };
 
   return (
-    <VStack spacing={6}>
+    <VStack spacing={6} marginBottom="3rem">
       <Text color="gray.200" fontSize="3rem" fontFamily="fantasy">
         Resume
       </Text>
@@ -38,7 +38,7 @@ const Resume = () => {
         Download Resume
       </Button>
       <Text fontSize="1rem" color="cyan" fontWeight="bold">
-        A resume built using LaTex ✨
+        A hyperlinked resume built using LaTex ✨
       </Text>
       <Button onClick={() => handleDownload(1)} bgColor="gray.300">
         Download LaTex code

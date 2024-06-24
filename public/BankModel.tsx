@@ -3,7 +3,7 @@ import { useGLTF } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 
 interface ModelProps {
-  [key: string]: any; // Allows any other props
+  [key: string]: any; 
 }
 
 export default function Model(props: ModelProps): JSX.Element {
@@ -22,7 +22,6 @@ export default function Model(props: ModelProps): JSX.Element {
   }, [targetRotation]);
 
   useFrame(() => {
-    // camera.position.set(0, 2, 5);
     camera.lookAt(0, 1.5, 0);
 
     const now = Date.now();
