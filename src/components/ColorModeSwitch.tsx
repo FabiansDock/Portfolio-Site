@@ -18,6 +18,7 @@ const ColorModeSwitch = ({ theme }: Props) => {
       isChecked={colorMode === "dark"}
       onChange={handleOnChange}
       marginEnd="20px"
+      marginStart="20px"
     />
   );
 };

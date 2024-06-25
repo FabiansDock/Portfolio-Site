@@ -1,9 +1,10 @@
 import { useState } from "react";
 import certificationsFiles from "../service";
-import { Button, HStack, Image, Text, VStack } from "@chakra-ui/react";
+import { Button, HStack, Image, Text, VStack, useBreakpointValue } from "@chakra-ui/react";
 
 const Certifications = () => {
   const [activeImage, setActiveImage] = useState(0);
+  const breakpoint = useBreakpointValue({base: "base", lg: "lg"});
 
   return (
     <VStack spacing={6}>
@@ -19,7 +20,7 @@ const Certifications = () => {
         </Button>
         <Image
           src={certificationsFiles[activeImage]}
-          boxSize="30rem"
+          boxSize={ breakpoint === "lg"? "30rem": "15rem"}
           objectFit="contain"
         />
         <Button

@@ -6,9 +6,10 @@ interface Props {
   message: String;
   typingComplete: () => void;
   textColor: string;
+  fontSize: string;
 }
 
-const IntroTextAnimation = ({ message, typingComplete, textColor }: Props) => {
+const IntroTextAnimation = ({ message, typingComplete, textColor, fontSize }: Props) => {
   const [displayText, setDisplayText] = useState("");
   const [isTypingComplete, setIsTypingComplete] = useState(false);
 
@@ -34,14 +35,14 @@ const IntroTextAnimation = ({ message, typingComplete, textColor }: Props) => {
     <div
       style={{
         display: "flex",
-        paddingTop: "2rem",
+        paddingTop: fontSize,
       }}
     >
       <motion.h1
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         style={{
-          fontSize: "2rem",
+          fontSize: fontSize,
           textAlign: "center",
           fontWeight: "bolder",
           color: textColor,
@@ -54,7 +55,7 @@ const IntroTextAnimation = ({ message, typingComplete, textColor }: Props) => {
           className="cursor"
           animate={{ opacity: [0, 1] }}
           transition={{ duration: 0.6, repeat: Infinity, repeatDelay: 0.8 }}
-          style={{ fontSize: "2rem", fontWeight: "bolder", color: textColor }}
+          style={{ fontSize: fontSize, fontWeight: "bolder", color: textColor }}
         >
           |
         </motion.span>
@@ -63,7 +64,7 @@ const IntroTextAnimation = ({ message, typingComplete, textColor }: Props) => {
   );
 };
 
-const Intro = () => {
+const Intro = ({fontSize}: {fontSize: string}) => {
   const [isTypingComplete, setIsTypingComplete] = useState(false);
 
   return (
@@ -72,12 +73,14 @@ const Intro = () => {
         message="Hi👋, I'm Fabian."
         typingComplete={() => setIsTypingComplete(true)}
         textColor="white"
+        fontSize={fontSize}
       />
       {isTypingComplete && (
         <IntroTextAnimation
           message="A Software Developer."
           typingComplete={() => setIsTypingComplete(true)}
           textColor="#63B3ED"
+          fontSize={fontSize}
         />
       )}
     </Box>

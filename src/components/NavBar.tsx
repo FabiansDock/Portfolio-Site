@@ -70,15 +70,17 @@ const BigNavBar = () => {
 
 export const SmallNavBar = () => {
   const profileTabs: ProfileTabSchema[] = [
-    { id: "About", link: "" },
-    { id: "Projects", link: "" },
-    { id: "Resume", link: "" },
-    { id: "Certifications", link: "" },
-    { id: "Socials", link: "" },
+    { id: "About", link: "/" },
+    { id: "Projects", link: "/projects" },
+    { id: "Resume", link: "/resume" },
+    { id: "Certifications", link: "/certifications" },
+    { id: "Socials", link: "/socials" },
   ];
 
   const [navBarColor, setNavBarColor] = useState("#1C4532");
 
+  const location = useLocation();
+  const [activeLink, setActiveLink] = useState(location.pathname);
   return (
     <HStack justifyContent="space-between" bg={navBarColor}>
       <Image src={logo} boxSize="60px" />
@@ -89,9 +91,20 @@ export const SmallNavBar = () => {
           <MenuList>
             {profileTabs.map((tab) => (
               <MenuItem key={tab.id}>
-                <RouteLink to={tab.link as string}>
-                  <Box color="cyan">{tab.id}</Box>
-                </RouteLink>
+                <RouteLink to={tab.link as string} key={tab.id}>
+            <Box
+              color={
+                tab.link === activeLink
+                  ? theme.components.Link.baseStyle._hover.color
+                  : theme.components.Link.baseStyle.color
+              }
+              marginEnd="30px"
+              onClick={() => setActiveLink(tab.link)}
+              _hover={{ color: theme.components.Link.baseStyle._hover.color }}
+            >
+              {tab.id}
+            </Box>{" "}
+          </RouteLink>
               </MenuItem>
             ))}
           </MenuList>

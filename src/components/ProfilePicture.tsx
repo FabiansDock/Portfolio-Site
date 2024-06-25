@@ -2,13 +2,18 @@ import { motion } from "framer-motion";
 import image from "../assets/profilePicture.jpeg";
 import { Box } from "@chakra-ui/react";
 
-const ProfilePicture = () => {
+interface Props{
+  width: number;
+  height: number;
+}
+
+const ProfilePicture = ({width, height}: Props) => {
   return (
     <Box margin={6}>
       <motion.div
         style={{
-          width: 300,
-          height: 300,
+          width: width,
+          height: height,
           borderRadius: "50%",
           overflow: "hidden",
         }}
