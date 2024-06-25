@@ -8,7 +8,7 @@ function Bank() {
   return (
     <>
       <Canvas camera={{ position: [0, 2, 5] }} className={styles["canvasBank"]}>
-        <ambientLight />
+        <ambientLight/>
         <OrbitControls
           minDistance={4}
           maxDistance={8}
