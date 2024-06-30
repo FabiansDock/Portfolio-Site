@@ -90,22 +90,18 @@ export const SmallNavBar = () => {
           <MenuButton as={Button} rightIcon={<FaChevronDown />} />
           <MenuList>
             {profileTabs.map((tab) => (
-              <MenuItem key={tab.id}>
-                <RouteLink to={tab.link as string} key={tab.id}>
-            <Box
-              color={
+              <RouteLink to={tab.link as string} key={tab.id}>
+                  <MenuItem color={
                 tab.link === activeLink
                   ? theme.components.Link.baseStyle._hover.color
                   : theme.components.Link.baseStyle.color
               }
               marginEnd="30px"
               onClick={() => setActiveLink(tab.link)}
-              _hover={{ color: theme.components.Link.baseStyle._hover.color }}
-            >
+              _hover={{ color: theme.components.Link.baseStyle._hover.color }}>
               {tab.id}
-            </Box>{" "}
-          </RouteLink>
               </MenuItem>
+          </RouteLink>
             ))}
           </MenuList>
         </Menu>
