@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { HfInference } from "@huggingface/inference";
-import { Button, HStack, Image, Input } from "@chakra-ui/react";
+import { Button, HStack, Image, Input, Text } from "@chakra-ui/react";
 
 const TextToImageComponent = () => {
   const inference = new HfInference(process.env.REACT_APP_TEXT2IMAGE_KEY);
@@ -25,7 +25,7 @@ const TextToImageComponent = () => {
       }
     } catch (error) {
       console.error("Error during text to image conversion:", error);
-      setImageUrl("");
+      setImageUrl("ERROR");
     }
   };
 
@@ -41,6 +41,7 @@ const TextToImageComponent = () => {
     window.URL.revokeObjectURL(url);
   };
 
+  handleTextToImage();
   return (
     <>
       <Input
@@ -66,6 +67,7 @@ const TextToImageComponent = () => {
           alt="Generated Image"
         />
       )}
+      {imageUrl === "ERROR" && <Text>Check again next time.</Text>}
     </>
   );
 };
