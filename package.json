@@ -13,6 +13,7 @@
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
+    "@huggingface/inference": "^2.7.0",
     "@react-three/drei": "^9.107.0",
     "@react-three/fiber": "^8.16.8",
     "@types/express": "^4.17.21",
