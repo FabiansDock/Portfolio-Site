@@ -8,7 +8,6 @@ const TextToImageComponent = () => {
   const [inputText, setInputText] = useState("Messi with Ronaldo");
 
   const handleTextToImage = async () => {
-    console.log("clicked");
     try {
       const blobResult = await inference.textToImage({
         model: "stabilityai/stable-diffusion-2",
@@ -22,6 +21,7 @@ const TextToImageComponent = () => {
           "Error: Expected Blob object from API, but received:",
           blobResult
         );
+        setImageUrl("ERROR");
       }
     } catch (error) {
       console.error("Error during text to image conversion:", error);
@@ -44,6 +44,11 @@ const TextToImageComponent = () => {
   handleTextToImage();
   return (
     <>
+      {imageUrl === "ERROR" && (
+        <Text color="gray.300" fontWeight="bold">
+          Number of requests exceeded 😞. Check again next time.
+        </Text>
+      )}
       <Input
         style={{
           maxWidth: "30%",
@@ -54,9 +59,14 @@ const TextToImageComponent = () => {
       />
       <HStack>
         <Button onClick={handleTextToImage}>Generate</Button>
-        <Button onClick={handleDownload}>Download</Button>
+        <Button
+          onClick={handleDownload}
+          isDisabled={imageUrl === "" || imageUrl === "ERROR" ? true : false}
+        >
+          Download
+        </Button>
       </HStack>
-      {imageUrl && (
+      {imageUrl && imageUrl !== "ERROR" && (
         <Image
           style={{
             maxHeight: "3%",
@@ -67,7 +77,6 @@ const TextToImageComponent = () => {
           alt="Generated Image"
         />
       )}
-      {imageUrl === "ERROR" && <Text>Check again next time.</Text>}
     </>
   );
 };
