@@ -28,6 +28,10 @@ const Projects = () => {
         My First Blender Model 🤩
       </Text>
       <Bank />
+      <Text color="gray.200" fontSize="2rem" fontFamily="fantasy">
+        Text 2 Image
+      </Text>
+      <p>Type in your imagination. A huggingface model.</p>
       <TextToImageComponent />
     </VStack>
   );
