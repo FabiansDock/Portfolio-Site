@@ -12,16 +12,5 @@ import r1 from "../assets/certifications/react_18_beginners.png";
 import nptel_java from "../assets/certifications/programming_in_java.jpg";
 import nptel_datascience from "../assets/certifications/data_science_for_engineers.jpg";
 
-export const certificationsFiles = [
-  c1,
-  c2,
-  d1,
-  d2,
-  d3,
-  docker,
-  git,
-  node,
-  python,
-  r1,
-];
+export const mosh = [c1, c2, d1, d2, d3, docker, git, node, python, r1];
 export const nptel = [nptel_java, nptel_datascience];
